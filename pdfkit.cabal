@@ -1,0 +1,54 @@
+name:                pdfkit
+version:             0.1.0
+synopsis:            PDF parser conforming to the Adobe standard
+description:         PDF parser conforming to the Adobe standard
+license:             BSD3
+license-file:        LICENSE
+author:              Kyle Raftogianis <kylerafto@gmail.com>
+maintainer:          Kyle Raftogianis <kylerafto@gmail.com>
+copyright:           (c) 2013 Kyle Raftogianis
+category:            Graphics
+build-type:          Simple
+cabal-version:       >= 1.8
+
+extra-source-files:
+  .gitignore
+  README.md
+
+source-repository head
+  type: git
+  location: git://github.com/knrafto/pdfkit.git
+
+library
+  build-depends:
+    attoparsec           >= 0.8.4,
+    base                 >= 4.6     && < 5.0,
+    bytestring,
+    unordered-containers >= 0.1.3.0,
+    vector               >= 0.7.1
+
+  exposed-modules:
+    Graphics.PDF.Parse
+    Graphics.PDF.Types
+
+  other-modules:
+    Graphics.PDF.Parse.File
+    Graphics.PDF.Parse.Object
+    Graphics.PDF.Parse.Syntax
+
+  ghc-options: -Wall
+
+test-suite tests
+  type: exitcode-stdio-1.0
+  main-is: Tests.hs
+  hs-source-dirs: tests
+  ghc-options: -Wall -threaded
+
+  build-depends:
+    attoparsec,
+    base,
+    bytestring,
+    HUnit,
+    pdfkit,
+    tasty,
+    tasty-hunit
