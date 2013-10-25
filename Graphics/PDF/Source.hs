@@ -1,4 +1,5 @@
-{-# LANGUAGE RankNTypes #-}
+-- | Random-access, streaming sources, which are used to read PDF files
+-- incrementally.
 module Graphics.PDF.Source
     ( -- * Sources
       Source(..)

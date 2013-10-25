@@ -1,11 +1,11 @@
--- | Types for working with PDFs.
+-- | PDF objects.
 module Graphics.PDF.Types
-    ( -- * Core types
-      Object(..)
+    ( -- * Object types
+      ObjectID(..)
     , Number(..)
-    , ObjectID(..)
     , Array
     , Dict
+    , Object(..)
       -- * Constructors
     , array
     , dict
