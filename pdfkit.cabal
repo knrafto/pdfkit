@@ -32,8 +32,9 @@ library
     vector
 
   exposed-modules:
-    Graphics.PDF.Source
     Graphics.PDF.Parse
+    Graphics.PDF.Reader
+    Graphics.PDF.Source
     Graphics.PDF.Types
 
   other-modules:
