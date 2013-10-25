@@ -1,4 +1,4 @@
-{-# LANGUAGE MultiParamTypeClasses, Rank2Types #-}
+{-# LANGUAGE MultiParamTypeClasses, Rank2Types, DeriveDataTypeable #-}
 -- | A PDF parsing monad.
 module Graphics.PDF.Reader
     ( PDFReaderT(..)
@@ -7,15 +7,20 @@ module Graphics.PDF.Reader
     ) where
 
 import Control.Applicative
+import Control.Exception
 import Control.Monad
 import Control.Monad.Error
 import Control.Monad.Reader
 import Data.Monoid
+import Data.Typeable
 
 import Graphics.PDF.Source
 
 -- | PDF errors. Needs love.
 data PDFError = PDFError
+    deriving (Show, Typeable)
+
+instance Exception PDFError
 
 -- | PDF parsing context.
 data Context m = Context
